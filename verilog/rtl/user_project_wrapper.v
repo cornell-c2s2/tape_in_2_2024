@@ -79,8 +79,8 @@ module user_project_wrapper (
 
   tapeins_sp24_tapein2_Interconnect_noparam mprj (
 `ifdef USE_POWER_PINS
-      .VPWR(vccd1),  // User area 1 1.8V supply
-      .VGND(vssd1),  // User area 1 digital ground
+      .vccd1(vccd1),  // User area 1 1.8V supply
+      .vssd1(vssd1),  // User area 1 digital ground
 `endif
       .clk(wb_clk_i),
       .reset(wb_rst_i),
