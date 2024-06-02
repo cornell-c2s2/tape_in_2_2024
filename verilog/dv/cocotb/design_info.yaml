@@ -1,8 +1,8 @@
-CARAVEL_ROOT: /usr/caravel_user_project/caravel
-MCW_ROOT: /usr/caravel_user_project/mgmt_core_wrapper
+CARAVEL_ROOT: /scratch/el595/tape_in_2_2024/caravel
+MCW_ROOT: /scratch/el595/tape_in_2_2024/mgmt_core_wrapper
 PDK: sky130A
-PDK_ROOT: /usr/pdk
-USER_PROJECT_ROOT: /usr/caravel_user_project
+PDK_ROOT: /scratch/el595/tape_in_2_2024/dependencies/pdks
+USER_PROJECT_ROOT: /scratch/el595/tape_in_2_2024
 caravan: false
 clk: 25
 emailto:

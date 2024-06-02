@@ -7,7 +7,7 @@
   "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
   "CLOCK_PERIOD": 25,
   "CLOCK_PORT": "clk",
-  "IO_PCT": 0.1,
+  "IO_PCT": 0.15,
   "FP_SIZING": "absolute",
   "DIE_AREA": "0 0 2000 1750",
   "PL_TARGET_DENSITY": 0.45
