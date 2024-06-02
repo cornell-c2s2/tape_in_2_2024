@@ -77,7 +77,14 @@ module user_project_wrapper (
     output [2:0] user_irq
 );
 
+<<<<<<< HEAD
   tapeins_sp24_tapein2_Interconnect_noparam mprj (
+=======
+  wire [22:0] unused_io_oeb;
+  assign io_oeb = 38'b0;
+
+  tapeins_sp24_tapein2_Interconnect tapein (
+>>>>>>> f17efd584f4d6dfd4c0d2339ed069c696eb26764
 `ifdef USE_POWER_PINS
       .VPWR(vccd1),  // User area 1 1.8V supply
       .VGND(vssd1),  // User area 1 digital ground
@@ -91,6 +98,7 @@ module user_project_wrapper (
       .sclk(io_in[9]),
       .miso(io_out[10]),
       .io_out(io_out[4:0]),
+<<<<<<< HEAD
       .io_oeb(io_oeb[22:0]),
       .wbs_stb_i(wbs_stb_i),
       .wbs_cyc_i(wbs_cyc_i),
@@ -106,6 +114,9 @@ module user_project_wrapper (
       .classifier_xbar_output_override(io_in[19]),
       .output_xbar_input_override(io_in[20]),
       .output_xbar_output_override(io_in[21])
+=======
+      .io_oeb(unused_io_oeb)
+>>>>>>> f17efd584f4d6dfd4c0d2339ed069c696eb26764
   );
 
 endmodule  // user_project_wrapper
