@@ -3010,6 +3010,8 @@ module tapeins_sp24_tapein2_Interconnect (
 	wire unused_arbiter_rdy = &{1'b0, arbiter_rdy[1], arbiter_rdy[3], arbiter_rdy[5:8], arbiter_rdy[10:ROUTER_ARBITER_SIZE - 1], 1'b0};
 endmodule
 module tapeins_sp24_tapein2_Interconnect_noparam (
+    vccd1,  // User area 1 1.8V supply
+    vssd1,  // User area 1 digital ground
 	adapter_parity,
 	classifier_xbar_input_override,
 	classifier_xbar_output_override,
@@ -3035,6 +3037,7 @@ module tapeins_sp24_tapein2_Interconnect_noparam (
 	wbs_stb_i,
 	wbs_we_i
 );
+	inout wire vccd1, vssd1;
 	output wire [0:0] adapter_parity;
 	input wire [0:0] classifier_xbar_input_override;
 	input wire [0:0] classifier_xbar_output_override;
