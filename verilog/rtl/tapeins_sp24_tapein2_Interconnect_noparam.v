@@ -495,7 +495,7 @@ module cmn_QueueDpath1 (
 			);
 		end
 		else begin : genblk1
-			reg unused = &{1'b0, bypass_mux_sel, 1'b0};
+			wire unused = &{1'b0, bypass_mux_sel, 1'b0};
 			assign deq_msg = qstore;
 		end
 	endgenerate
@@ -624,7 +624,7 @@ module cmn_QueueDpath (
 			);
 		end
 		else begin : genblk1
-			reg unused = 1'b0 & bypass_mux_sel;
+			wire unused = 1'b0 & bypass_mux_sel;
 			assign deq_msg = read_data;
 		end
 	endgenerate
@@ -1142,7 +1142,7 @@ module arbiter_router_Router (
 			assign ostream_msg[((noutputs - 1) - i) * nbits+:nbits] = payload_msg;
 		end
 	endgenerate
-	reg unused = &{1'b0, num_free_entries, 1'b0};
+	wire unused = &{1'b0, num_free_entries, 1'b0};
 endmodule
 `default_nettype none
 module fft_helpers_SineWave (out);
@@ -1386,7 +1386,7 @@ module fixed_point_combinational_ComplexMultiplier (
 			wire [1:1] sv2v_tmp_3CA7E;
 			assign sv2v_tmp_3CA7E = recv_val;
 			always @(*) send_val = sv2v_tmp_3CA7E;
-			reg unused = &{clk, reset};
+			wire unused = &{clk, reset};
 		end
 		else if (num_mults == 1) begin : genblk1
 			reg [2:0] IDLE = 3'd0;
@@ -1399,7 +1399,7 @@ module fixed_point_combinational_ComplexMultiplier (
 			reg [n - 1:0] mul_a;
 			reg [n - 1:0] mul_b;
 			wire [n - 1:0] mul_c;
-			reg unused = &{IDLE, MUL1, MUL2, MUL3, DONE};
+			wire unused = &{IDLE, MUL1, MUL2, MUL3, DONE};
 			always @(posedge clk)
 				if (reset) begin
 					state <= IDLE;
@@ -1566,7 +1566,7 @@ module fft_pease_helpers_TwiddleGenerator (
 				assign twiddle_real[(((SIZE_FFT / 2) - 1) - i) * BIT_WIDTH+:BIT_WIDTH] = {{(BIT_WIDTH - DECIMAL_PT) - 1 {1'b0}}, 1'b1, {DECIMAL_PT {1'b0}}};
 				assign twiddle_imaginary[(((SIZE_FFT / 2) - 1) - i) * BIT_WIDTH+:BIT_WIDTH] = 0;
 			end
-			reg unused = &sine_wave_in;
+			wire unused = &sine_wave_in;
 		end
 		else begin : genblk1
 			genvar m;
@@ -1764,7 +1764,7 @@ module serdes_Deserializer (
 			assign recv_rdy = send_rdy;
 			assign send_val = recv_val;
 			assign send_msg[(N_SAMPLES - 1) * BIT_WIDTH+:BIT_WIDTH] = recv_msg;
-			reg unused = {1'b0, clk, reset, 1'b0};
+			wire unused = {1'b0, clk, reset, 1'b0};
 		end
 		else begin : genblk1
 			wire [N_SAMPLES - 1:0] en_sel;
@@ -1899,7 +1899,7 @@ module serdes_Serializer (
 			assign recv_rdy = send_rdy;
 			assign send_val = recv_val;
 			assign send_msg = recv_msg[(N_SAMPLES - 1) * BIT_WIDTH+:BIT_WIDTH];
-			reg unused = {1'b0, clk, reset, 1'b0};
+			wire unused = {1'b0, clk, reset, 1'b0};
 		end
 		else begin : genblk1
 			wire [$clog2(N_SAMPLES) - 1:0] mux_sel;
@@ -2593,7 +2593,7 @@ module wishbone_Wishbone (
 		else
 			wbs_dat_o = 32'b00000000000000000000000000000000;
 	assign wbs_ack_o = 1'b1;
-	reg unused = &{1'b0, wbs_sel_i, adr_sub, 1'b0};
+	wire unused = &{1'b0, wbs_sel_i, adr_sub, 1'b0};
 endmodule
 module tapeins_sp24_tapein2_Interconnect (
 	clk,

@@ -1,5 +1,5 @@
 //========================================================================
-// loopback_inXbar_msgs0
+// test_compose
 //========================================================================
 
 `default_nettype none
@@ -24,7 +24,7 @@
 `define VTB_TEST_FAIL(lineno, out, ref, port_name) \
         $display("- Timestamp      : %0d (default unit: ns)", $time); \
         $display("- Cycle number   : %0d (variable: cycle_count)", cycle_count); \
-        $display("- line number    : line %0d in loopback_inXbar_msgs0_tb.v.cases", lineno); \
+        $display("- line number    : line %0d in test_compose_tb.v.cases", lineno); \
         $display("- port name      : %s", port_name); \
         $display("- expected value : 0x%x", ref); \
         $display("- actual value   : 0x%x", out); \
@@ -53,7 +53,7 @@
 // Top-Level Test Harness
 //========================================================================
 
-module loopback_inXbar_msgs0_tb;
+module test_compose_tb;
 
   //----------------------------------------------------------------------
   // Create clocks
@@ -112,7 +112,7 @@ module loopback_inXbar_msgs0_tb;
   );
 
   spiflash #(
-      .FILENAME("loopback_inXbar_msgs0.hex")
+      .FILENAME("test_compose.hex")
   ) spiflash (
       .csb(flash_csb),
       .clk(flash_clk),
@@ -223,8 +223,8 @@ module loopback_inXbar_msgs0_tb;
   //----------------------------------------------------------------------
 
   initial begin
-    $dumpfile("loopback_inXbar_msgs0.vcd");
-    $dumpvars(0, loopback_inXbar_msgs0_tb);
+    $dumpfile("test_compose.vcd");
+    $dumpvars(0, test_compose_tb);
     #1;
 
     // Repeat cycles of 1000 clock edges as needed to complete testbench
@@ -320,7 +320,7 @@ module loopback_inXbar_msgs0_tb;
     // 2 cycles plus input delay
 
     // Start test
-    `include "Interconnect_noparam_test_loopback_inXbar_msgs0_tb.v.cases"
+    `include "Interconnect_noparam_test_compose_tb.v.cases"
 
     $display("");
     $display("  [ passed ]");
